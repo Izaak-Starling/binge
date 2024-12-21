@@ -27,4 +27,7 @@ export const beanRouter = t.router({
     })
     console.log("Ordering beans " + input.beanId + " for user " + input.user);
   }),
+  getBeanOrders: t.procedure.query(() => {
+    return beanOrders;
+  }),
 });
