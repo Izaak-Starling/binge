@@ -1,6 +1,6 @@
 import {api, HydrateClient} from "~/trpc/server";
 import Header from "~/app/_components/header";
-import {Hero} from "~/app/_components/hero";
+import {Picture} from "~/app/_components/swipe/picture";
 
 export default async function Page() {
 
@@ -12,20 +12,17 @@ export default async function Page() {
         <div className="container min-h-screen flex flex-col mx-auto">
           <Header/>
 
-          <div className="flex bg-binge-off-white h-screen min-w-full z-0">
+          <div className="flex flex-col bg-binge-off-white min-w-full z-0 p-8">
 
             {/*Bean name section*/}
-            <div className="flex w-screen">
+            <div className="w-full">
               <p className="text-binge-off-black text-xl">Borlotti Beans</p>
               <p className="text-binge-off-black text-lg">In a tomato sauce</p>
             </div>
 
-            <div className="flex w-full justify-center" style={{transform: 'translateY(75vh)'}}>
-              <p className="text-binge-off-white text-3xl/[1.1em] inline-block">The bean app<br/>designed to be deleted&trade;</p>
-            </div>
-          </div>
+            <Picture/>
 
-          <Hero/>
+          </div>
         </div>
         </body>
       </HydrateClient>
