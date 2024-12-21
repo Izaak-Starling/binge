@@ -11,11 +11,14 @@ export default {
       colors: {
         'binge-off-white': '#fffefd',
         'binge-off-black': '#1a1a1a',
-        'binge-link-purple': '#67295f',
+        'binge-purple': '#67295f',
       },
       backgroundImage: {
         //TODO: Use a darker image to make the text pop more
         'binge-beans-main': "url('/img/beans.jpg')",
+      },
+      strokeWidth: {
+        '20': '7px',
       }
     },
   },
