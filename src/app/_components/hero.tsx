@@ -25,7 +25,7 @@ export function Hero() {
             </p>
 
             <p className="mt-8 text-pretty text-lg font-1xl text-binge-off-black">
-              Binge is built on the beleive that anyone looking for beans should be able to find them.
+              Binge is built on the belief that anyone looking for beans should be able to find them.
               It's also built on an algorithm written in 5 minutes and on 5 pints and a pack of ciggies,
               so we can succeed in getting you beans, not keeping you on the ap.
             </p>
