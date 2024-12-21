@@ -3,12 +3,21 @@ import {z} from "zod";
 
 export const t = initTRPC.create();
 
-interface BeanOrder {
+export interface BeanOrder {
   beanId: string;
   name: string;
 }
 
-const beanOrders: BeanOrder[] = [];
+const beanOrders: BeanOrder[] = [
+  {
+    beanId: "1",
+    name: "John"
+  },
+  {
+    beanId: "2",
+    name: "Jane"
+  }
+];
 
 export const beanRouter = t.router({
   orderBeans: t.procedure
@@ -27,7 +36,9 @@ export const beanRouter = t.router({
     })
     console.log("Ordering beans " + input.beanId + " for user " + input.user);
   }),
+
   getBeanOrders: t.procedure.query(() => {
     return beanOrders;
   }),
 });
+
