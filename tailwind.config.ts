@@ -12,6 +12,9 @@ export default {
         'binge-off-white': '#fffefd',
         'binge-off-black': '#1a1a1a',
         'binge-purple': '#67295f',
+        'binge-green': '#03cb46',
+        'binge-red': '#e4230d',
+
       },
       backgroundImage: {
         //TODO: Use a darker image to make the text pop more
