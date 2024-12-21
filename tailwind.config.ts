@@ -14,6 +14,7 @@ export default {
         'binge-link-purple': '#67295f',
       },
       backgroundImage: {
+        //TODO: Use a darker image to make the text pop more
         'binge-beans-main': "url('/img/beans.jpg')",
       }
     },

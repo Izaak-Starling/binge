@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
       <>
-        <header className="inset-x-0 sticky top-0 z-50 bg-binge-off-white">
+        <header className="inset-x-0 sticky top-0 z-50 bg-binge-off-white left-0 w-full">
 
           <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
             <div className="hidden lg:flex-1">
