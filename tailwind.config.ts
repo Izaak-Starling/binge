@@ -8,6 +8,14 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
+      colors: {
+        'binge-off-white': '#fffefd',
+        'binge-off-black': '#1a1a1a',
+        'binge-link-purple': '#67295f',
+      },
+      backgroundImage: {
+        'binge-beans-main': "url('/img/beans.jpg')",
+      }
     },
   },
   plugins: [],
