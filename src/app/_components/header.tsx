@@ -1,7 +1,7 @@
 'use client'
 
 import {Bars2Icon, XMarkIcon} from "@heroicons/react/24/outline";
-import OffWhiteButton from "~/app/_components/offWhiteButton";
+import OffBlackButton from "~/app/_components/offBlackButton";
 import {Dialog, DialogPanel} from "@headlessui/react";
 import {useState} from "react";
 
@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
       <>
-        <header className="absolute inset-x-0 top-0 z-50">
+        <header className="inset-x-0 sticky top-0 z-50 bg-binge-off-white">
 
           <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
             <div className="hidden lg:flex-1">
@@ -34,13 +34,13 @@ const Header = () => {
                   className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars2Icon aria-hidden="true" className="size-9 stroke-binge-off-white"/>
+                <Bars2Icon aria-hidden="true" className="size-9 stroke-binge-off-black"/>
               </button>
             </div>
             <div className="lg:gap-6">
-              <p className="text-4xl tracking-tight text-binge-off-white sm:text-[5rem]">Binge</p>
+              <p className="text-4xl tracking-tight text-binge-off-black sm:text-[5rem]">Binge</p>
             </div>
-            <OffWhiteButton text="Eat"/>
+            <OffBlackButton text="Eat"/>
           </nav>
 
           <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">

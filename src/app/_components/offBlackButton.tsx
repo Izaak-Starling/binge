@@ -4,13 +4,13 @@ interface ButtonProps {
   text: string;
 }
 
-const OffWhiteButton: FC<ButtonProps> = (props) => {
+const OffBlackButton: FC<ButtonProps> = (props) => {
 
   return (
       <div className="flex lg:gap-x-6">
         <a
             href="#"
-            className="rounded-full bg-binge-off-white px-3.5 py-2.5 text-sm font-semibold text-binge-off-black"
+            className="rounded-full bg-binge-off-black px-3.5 py-2.5 text-sm font-semibold text-binge-off-white"
         >
           {props.text}
         </a>
@@ -19,4 +19,4 @@ const OffWhiteButton: FC<ButtonProps> = (props) => {
 }
 
 
-export default OffWhiteButton;
+export default OffBlackButton;
