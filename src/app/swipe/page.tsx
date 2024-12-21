@@ -1,11 +1,8 @@
-import {api, HydrateClient} from "~/trpc/server";
+import {HydrateClient} from "~/trpc/server";
 import Header from "~/app/_components/header";
 import {Picture} from "~/app/_components/swipe/picture";
 
 export default async function Page() {
-
-  void api.post.getLatest.prefetch();
-
   return (
       <HydrateClient>
         <body>
