@@ -9,7 +9,7 @@ export function Picture() {
 
   const orderBeans = api.bean.orderBeans.useMutation({
     onSuccess: async (response) => {
-      console.log(response.text);
+      console.log(response);
       await utils.post.invalidate();
     },
   });
@@ -19,12 +19,12 @@ export function Picture() {
         <form onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
-          //TODO: error when the bean id is not set
-          const beanId = formData.get('beanId') as string | "";
+          //TODO: error when the bean name is not set
+          const beanName = formData.get('beanName') as string | "";
 
-          orderBeans.mutate({beanId: beanId, user: "izaak"});
+          orderBeans.mutate({beanName: beanName, user: "izaak"});
         }}>
-          <input name="beanId" className="hidden" value="borlottiBeans" readOnly={true}/>
+          <input name="beanName" className="hidden" value="Borlotti Beans" readOnly={true}/>
           <button type="submit">
             <div className="absolute bottom-0 right-0 box-border bg-binge-off-white bg-origin-padding rounded-full m-2">
               <div className="p-3">
