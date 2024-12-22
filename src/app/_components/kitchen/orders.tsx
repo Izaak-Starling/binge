@@ -42,10 +42,6 @@ export function Orders() {
     return tSplitOrders;
   }
 
-  const refreshOrders = () => {
-    setSplitOrders(calcOrders);
-  }
-
   useEffect(() => setSplitOrders(calcOrders()), [orders]);
 
   useEffect(() => {
