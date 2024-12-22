@@ -1,29 +1,44 @@
 import {initTRPC} from '@trpc/server';
 import {z} from "zod";
 
-export const t = initTRPC.create();
+export enum OrderState {
+  Pending,
+  Accepted,
+  Ready
+}
 
 export interface BeanOrder {
-  beanId: string;
+  orderId: string,
+  beanName: string;
   name: string;
+  orderState: OrderState,
+  orderPlacedDateTime: Date
 }
 
 const beanOrders: BeanOrder[] = [
   {
-    beanId: "1",
-    name: "John"
+    orderId: "abc",
+    beanName: "Borlotti Beans",
+    name: "John",
+    orderState: OrderState.Pending,
+    orderPlacedDateTime: new Date(),
   },
   {
-    beanId: "2",
-    name: "Jane"
+    orderId: "def",
+    beanName: "Homemade Cider",
+    name: "Jane",
+    orderState: OrderState.Accepted,
+    orderPlacedDateTime: new Date(),
   }
 ];
+
+const t = initTRPC.create({isServer: true});
 
 export const beanRouter = t.router({
   orderBeans: t.procedure
   .input(
       z.object({
-        beanId: z.string(),
+        beanName: z.string(),
         user: z.string()
       })
   )
@@ -31,10 +46,29 @@ export const beanRouter = t.router({
     const {input} = opts;
 
     beanOrders.push({
-      beanId: input.beanId,
-      name: input.user
+      orderId: crypto.randomUUID(),
+      beanName: input.beanName,
+      name: input.user,
+      orderState: OrderState.Pending,
+      orderPlacedDateTime: new Date(),
     })
-    console.log("Ordering beans " + input.beanId + " for user " + input.user);
+    console.log("Ordering beans " + input.beanName + " for user " + input.user);
+  }),
+
+  acceptOrder: t.procedure
+  .input(
+      z.object({
+        orderId: z.string()
+      })
+  ).mutation(async (opts) => {
+    const {input} = opts;
+
+    const order = beanOrders.find(order => order.orderId === input.orderId);
+    if (order) {
+      order.orderState = OrderState.Accepted;
+    }
+    console.log("Accepting order " + order?.orderId);
+    console.log(beanOrders.find(order => order.orderId === input.orderId)?.orderState);
   }),
 
   getBeanOrders: t.procedure.query(() => {
