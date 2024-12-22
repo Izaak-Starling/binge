@@ -33,7 +33,7 @@ const Offering = (props: { beanDetails: BeanDetails }) => {
 
         <Picture beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
 
-        //TODO: Make user confirm they want to order after a match. To avoid unexpected orders.
+        {/*//TODO: Make user confirm they want to order after a match. To avoid unexpected orders.*/}
         <MatchModal isOpen={isMatch} beanName={props.beanDetails.name} doOnClose={() => {
           setIsMatch(false);
         }}/>
