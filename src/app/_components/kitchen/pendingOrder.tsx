@@ -5,7 +5,7 @@ import React from "react";
 import {api} from "~/trpc/react";
 
 
-const PendingOrder = (props: { order: BeanOrder, refreshOrders: Function }) => {
+const PendingOrder = (props: { order: BeanOrder }) => {
 
   const utils = api.useUtils();
 

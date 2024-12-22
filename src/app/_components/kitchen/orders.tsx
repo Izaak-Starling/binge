@@ -15,7 +15,7 @@ interface SplitOrders {
 
 export function Orders() {
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
-
+  const utils = api.useUtils();
   const [orders] = api.bean.getBeanOrders.useSuspenseQuery();
 
   const calcOrders = (): SplitOrders => {
@@ -48,8 +48,15 @@ export function Orders() {
 
   useEffect(() => setSplitOrders(calcOrders()), [orders]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => utils.bean.invalidate(), 10000); // Poll every 10 seconds
+
+    return () => clearInterval(intervalId); // Clear interval on component unmount
+  }, [orders]);
+
   return (
       //TODO: Fix three columns to 1/3 of the screen width
+      //TODO: Make the individual divs scrollable, not the whole page
       <div className="flex flex-row justify-around grow">
 
         <div className="flex flex-col items-center grow">
@@ -58,7 +65,7 @@ export function Orders() {
           <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.pending.map(pendingOrder => (
-                  <PendingOrder key={pendingOrder.orderId} order={pendingOrder} refreshOrders={refreshOrders}/>
+                  <PendingOrder key={pendingOrder.orderId} order={pendingOrder}/>
               ))) : (<></>)
             }
           </div>
@@ -70,7 +77,7 @@ export function Orders() {
           <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.accepted.map(acceptedOrder => (
-                  <AcceptedOrder key={acceptedOrder.orderId} order={acceptedOrder} refreshOrders={refreshOrders}/>
+                  <AcceptedOrder key={acceptedOrder.orderId} order={acceptedOrder}/>
               ))) : (<></>)
             }
           </div>
