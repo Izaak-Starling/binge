@@ -51,6 +51,7 @@ export function Orders() {
   useEffect(() => setSplitOrders(calcOrders()), [orders]);
 
   return (
+      //TODO: Fix three columns to 1/3 of the screen width
       <div className="flex flex-row justify-around grow">
 
         <div className="flex flex-col items-center grow">
