@@ -4,6 +4,7 @@ import {api} from "~/trpc/react";
 import {useEffect, useState} from "react";
 import {BeanOrder, OrderState} from "~/server/api/routers/beans";
 import PendingOrder from "~/app/_components/kitchen/pendingOrder";
+import AcceptedOrder from "~/app/_components/kitchen/acceptedOrder";
 
 interface SplitOrders {
   pending: BeanOrder[],
@@ -72,7 +73,7 @@ export function Orders() {
           <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.accepted.map(pendingOrder => (
-                  <PendingOrder key={pendingOrder.orderId} order={pendingOrder} refreshOrders={refreshOrders}/>
+                  <AcceptedOrder key={pendingOrder.orderId} order={pendingOrder} refreshOrders={refreshOrders}/>
               ))) : (<></>)
             }
           </div>
