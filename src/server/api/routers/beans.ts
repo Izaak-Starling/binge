@@ -101,5 +101,9 @@ export const beanRouter = t.router({
   getBeanOrders: t.procedure.query(() => {
     return beanOrders;
   }),
+
+  getBeanDetails: t.procedure.query(() => {
+    return beanDetails;
+  })
 });
 
