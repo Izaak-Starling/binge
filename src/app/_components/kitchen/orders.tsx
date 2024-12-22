@@ -51,13 +51,10 @@ export function Orders() {
   }, [orders]);
 
   return (
-      //TODO: Fix three columns to 1/3 of the screen width
-      //TODO: Make the individual divs scrollable, not the whole page
-      <div className="flex flex-row justify-around grow">
-
-        <div className="flex flex-col items-center grow">
+      <div className="flex flex-row justify-around w-full h-screen overflow-y-hidden">
+        <div className="flex flex-col items-center w-1/3 overflow-auto">
           {/*  Pending orders*/}
-          <p className="justify-center grow-0">Pending</p>
+          <p className="justify-center">Pending</p>
           <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.pending.map(pendingOrder => (
@@ -67,9 +64,9 @@ export function Orders() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center grow">
+        <div className="flex flex-col items-center w-1/3 overflow-auto">
           {/* Accepted Orders */}
-          <p className="justify-center grow-0">Accepted</p>
+          <p className="justify-center">Accepted</p>
           <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.accepted.map(acceptedOrder => (
@@ -79,9 +76,9 @@ export function Orders() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center grow">
+        <div className="flex flex-col items-center w-1/3 overflow-auto">
           {/* Completed Orders */}
-          <p className="justify-center grow-0">Completed</p>
+          <p className="justify-center">Completed</p>
           <div className="flex flex-col">
             {
               splitOrders.completed ? (splitOrders.completed.map(completedOrder => (
@@ -90,7 +87,6 @@ export function Orders() {
             }
           </div>
         </div>
-
       </div>
   )
 }

@@ -6,7 +6,7 @@ import MatchModal from "~/app/_components/swipe/match";
 import {useState} from "react";
 import {api} from "~/trpc/react";
 
-const Offering = (props: { beanDetails: BeanDetails }) => {
+const Offering = (props: { beanDetails: BeanDetails, onSwipe: Function }) => {
 
   const [isMatch, setIsMatch] = useState<boolean>(false);
 
@@ -36,6 +36,7 @@ const Offering = (props: { beanDetails: BeanDetails }) => {
         {/*//TODO: Make user confirm they want to order after a match. To avoid unexpected orders.*/}
         <MatchModal isOpen={isMatch} beanName={props.beanDetails.name} doOnClose={() => {
           setIsMatch(false);
+          props.onSwipe();
         }}/>
       </div>
   )
