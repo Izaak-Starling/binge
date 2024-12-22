@@ -67,8 +67,20 @@ export const beanRouter = t.router({
     if (order) {
       order.orderState = OrderState.Accepted;
     }
-    console.log("Accepting order " + order?.orderId);
-    console.log(beanOrders.find(order => order.orderId === input.orderId)?.orderState);
+  }),
+
+  completeOrder: t.procedure
+  .input(
+      z.object({
+        orderId: z.string()
+      })
+  ).mutation(async (opts) => {
+    const {input} = opts;
+
+    const order = beanOrders.find(order => order.orderId === input.orderId);
+    if (order) {
+      order.orderState = OrderState.Ready;
+    }
   }),
 
   getBeanOrders: t.procedure.query(() => {
