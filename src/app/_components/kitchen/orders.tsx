@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {BeanOrder, OrderState} from "~/server/api/routers/beans";
 import PendingOrder from "~/app/_components/kitchen/pendingOrder";
 import AcceptedOrder from "~/app/_components/kitchen/acceptedOrder";
+import CompletedOrder from "~/app/_components/kitchen/completedOrder";
 
 interface SplitOrders {
   pending: BeanOrder[],
@@ -79,8 +80,16 @@ export function Orders() {
           </div>
         </div>
 
-        <div className="flex flex-row">
-          {/* Ready Orders */}
+        <div className="flex flex-col items-center grow">
+          {/* Completed Orders */}
+          <p className="justify-center grow-0">Completed</p>
+          <div className="flex flex-col">
+            {
+              splitOrders.ready ? (splitOrders.ready.map(pendingOrder => (
+                  <CompletedOrder key={pendingOrder.orderId} order={pendingOrder}/>
+              ))) : (<></>)
+            }
+          </div>
         </div>
 
       </div>
