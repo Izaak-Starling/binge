@@ -43,8 +43,6 @@ export function Orders() {
   }
 
   const refreshOrders = () => {
-    console.log("Refreshing orders");
-
     setSplitOrders(calcOrders);
   }
 
@@ -57,7 +55,7 @@ export function Orders() {
         <div className="flex flex-col items-center grow">
           {/*  Pending orders*/}
           <p className="justify-center grow-0">Pending</p>
-          <div className="flex flex-row">
+          <div className="flex flex-col">
             {
               splitOrders.pending ? (splitOrders.pending.map(pendingOrder => (
                   <PendingOrder key={pendingOrder.orderId} order={pendingOrder} refreshOrders={refreshOrders}/>
