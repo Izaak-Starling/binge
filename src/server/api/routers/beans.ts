@@ -4,7 +4,7 @@ import {z} from "zod";
 export enum OrderState {
   Pending,
   Accepted,
-  Ready
+  Completed
 }
 
 export interface BeanOrder {
@@ -79,7 +79,7 @@ export const beanRouter = t.router({
 
     const order = beanOrders.find(order => order.orderId === input.orderId);
     if (order) {
-      order.orderState = OrderState.Ready;
+      order.orderState = OrderState.Completed;
     }
   }),
 

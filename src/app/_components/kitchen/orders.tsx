@@ -10,32 +10,29 @@ import CompletedOrder from "~/app/_components/kitchen/completedOrder";
 interface SplitOrders {
   pending: BeanOrder[],
   accepted: BeanOrder[],
-  ready: BeanOrder[]
+  completed: BeanOrder[]
 }
 
 export function Orders() {
-  const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], ready: []});
+  const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
 
   const [orders] = api.bean.getBeanOrders.useSuspenseQuery();
 
   const calcOrders = (): SplitOrders => {
-    const tSplitOrders: SplitOrders = {pending: [], accepted: [], ready: []};
+    const tSplitOrders: SplitOrders = {pending: [], accepted: [], completed: []};
     // const orders = fetchOrders.query()
 
     for (const order of orders) {
       console.log("order: ", order);
       switch (order.orderState) {
         case OrderState.Pending:
-          console.log("Pending")
           tSplitOrders.pending.push(order);
           break;
         case OrderState.Accepted:
-          console.log("accepted")
           tSplitOrders.accepted.push(order);
           break;
-        case OrderState.Ready:
-          console.log("Ready");
-          tSplitOrders.ready.push(order);
+        case OrderState.Completed:
+          tSplitOrders.completed.push(order);
           break;
       }
     }
@@ -73,8 +70,8 @@ export function Orders() {
           <p className="justify-center grow-0">Accepted</p>
           <div className="flex flex-col">
             {
-              splitOrders.pending ? (splitOrders.accepted.map(pendingOrder => (
-                  <AcceptedOrder key={pendingOrder.orderId} order={pendingOrder} refreshOrders={refreshOrders}/>
+              splitOrders.pending ? (splitOrders.accepted.map(acceptedOrder => (
+                  <AcceptedOrder key={acceptedOrder.orderId} order={acceptedOrder} refreshOrders={refreshOrders}/>
               ))) : (<></>)
             }
           </div>
@@ -85,8 +82,8 @@ export function Orders() {
           <p className="justify-center grow-0">Completed</p>
           <div className="flex flex-col">
             {
-              splitOrders.ready ? (splitOrders.ready.map(pendingOrder => (
-                  <CompletedOrder key={pendingOrder.orderId} order={pendingOrder}/>
+              splitOrders.completed ? (splitOrders.completed.map(completedOrder => (
+                  <CompletedOrder key={completedOrder.orderId} order={completedOrder}/>
               ))) : (<></>)
             }
           </div>
