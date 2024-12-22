@@ -43,6 +43,16 @@ const beanDetails: BeanDetails[] = [
     name: "Borlotti Beans",
     description: "In a tomato sauce",
     image1Url: "/img/borlotti_beans_1.jpg",
+  },
+  {
+    name: "Homemade Cider",
+    description: "Tangy",
+    image1Url: "/img/homemade_cider_1.jpg",
+  },
+  {
+    name: "Mead",
+    description: "Not fit for human consumption",
+    image1Url: "/img/mead_1.jpg",
   }
 ]
 
