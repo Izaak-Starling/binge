@@ -15,6 +15,12 @@ export interface BeanOrder {
   orderPlacedDateTime: Date
 }
 
+export interface BeanDetails {
+  name: string,
+  description: string,
+  image1Url: string,
+}
+
 const beanOrders: BeanOrder[] = [
   {
     orderId: "abc",
@@ -31,6 +37,15 @@ const beanOrders: BeanOrder[] = [
     orderPlacedDateTime: new Date(),
   }
 ];
+
+const beanDetails: BeanDetails[] = [
+  {
+    name: "Borlotti Beans",
+    description: "In a tomato sauce",
+    image1Url: "/img/borlotti_beans_1.jpg",
+  }
+]
+
 
 const t = initTRPC.create({isServer: true});
 
