@@ -30,11 +30,7 @@ const AcceptedOrder = (props: { order: BeanOrder, refreshOrders: Function }) => 
           </p>
           <div className="flex flex-row justify-around pt-4">
             <button className="rounded-full bg-binge-green px-3.5 py-2.5 text-sm font-semibold text-binge-off-black" onClick={() => completeOrder.mutate({orderId: props.order.orderId})}>
-              Accept
-            </button>
-
-            <button className="rounded-full bg-binge-red px-3.5 py-2.5 text-sm font-semibold text-binge-off-black" onClick={() => reject(props.order.orderId)}>
-              Reject
+              Complete Order
             </button>
           </div>
         </div>
