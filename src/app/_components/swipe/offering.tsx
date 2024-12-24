@@ -5,6 +5,7 @@ import {BeanDetails} from "~/server/api/routers/beans";
 import MatchModal from "~/app/_components/swipe/match";
 import {useState} from "react";
 import {api} from "~/trpc/react";
+import SwipeButton from "~/app/_components/swipe/SwipeButton";
 
 const Offering = (props: { beanDetails: BeanDetails, onSwipe: Function }) => {
 
@@ -22,6 +23,7 @@ const Offering = (props: { beanDetails: BeanDetails, onSwipe: Function }) => {
     orderBeans.mutate({beanName: props.beanDetails.name, user: "izaak"});
   }
 
+
   return (
       <div className="flex flex-col bg-binge-off-white min-w-full z-0 p-8">
 
@@ -32,6 +34,8 @@ const Offering = (props: { beanDetails: BeanDetails, onSwipe: Function }) => {
         </div>
 
         <Picture beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
+
+        <SwipeButton onSwipe={() => props.onSwipe()}/>
 
         {/*//TODO: Make user confirm they want to order after a match. To avoid unexpected orders.*/}
         <MatchModal isOpen={isMatch} beanName={props.beanDetails.name} doOnClose={() => {
