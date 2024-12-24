@@ -1,7 +1,7 @@
 'use client'
 
 import {api} from "~/trpc/react";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {type BeanOrder, OrderState} from "~/server/api/routers/beans";
 import PendingOrder from "~/app/_components/kitchen/pendingOrder";
 import AcceptedOrder from "~/app/_components/kitchen/acceptedOrder";
@@ -19,7 +19,9 @@ export function Orders() {
   const utils = api.useUtils();
   const {data: orders = []} = api.bean.getBeanOrders.useQuery();
 
-  const audio = new Audio("/audio/maccas.m4a")
+  const musicPlayers = useRef<HTMLAudioElement | undefined>(
+      typeof Audio !== "undefined" ? new Audio("/audio/maccas.m4a") : undefined
+  );
 
   const calcOrders = (): SplitOrders => {
     console.log("Calcing orders " + isFirstRender);
@@ -42,7 +44,7 @@ export function Orders() {
 
     if (!isFirstRender && (orders.length) > (splitOrders.pending.length + splitOrders.accepted.length + splitOrders.completed.length)) {
       // New order present, play beep sound
-      audio.play();
+      void musicPlayers.current?.play();
     }
 
     if (isFirstRender) {
