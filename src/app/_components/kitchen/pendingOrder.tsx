@@ -1,6 +1,6 @@
 'use client'
 
-import {BeanOrder} from "~/server/api/routers/beans";
+import {type BeanOrder} from "~/server/api/routers/beans";
 import React from "react";
 import {api} from "~/trpc/react";
 
@@ -12,12 +12,12 @@ const PendingOrder = (props: { order: BeanOrder }) => {
   const acceptOrder = api.bean.acceptOrder.useMutation({
     onSuccess: async (response) => {
       console.log(response);
-      utils.bean.invalidate();
+      await utils.bean.invalidate();
     },
   });
 
   const reject = (orderId: string) => {
-    //TODO
+    console.log("TODO: Rejecting: ", orderId);
   }
 
   return (

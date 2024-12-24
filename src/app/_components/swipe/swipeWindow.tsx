@@ -18,10 +18,10 @@ const SwipeWindow = () => {
       <body>
       <Header/>
       <div className="container min-h-screen flex flex-col mx-auto">
-        {beanDetails && beanDetails[swipeIndex] ? (
-            <Offering beanDetails={beanDetails[swipeIndex]!} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
+        {beanDetails?.[swipeIndex] ? (
+            <Offering beanDetails={beanDetails[swipeIndex]} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
         ) : (
-            <p>You've run out of beans you hungry bastard!</p>
+            <p className="text-binge-off-black">You&apos;ve run out of beans you hungry bastard!</p>
             // TODO: Add ability to go back to the start
             // TODO: Tell izaak how stinky he is
         )}

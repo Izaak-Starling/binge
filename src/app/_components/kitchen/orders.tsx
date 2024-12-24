@@ -2,7 +2,7 @@
 
 import {api} from "~/trpc/react";
 import {useEffect, useState} from "react";
-import {BeanOrder, OrderState} from "~/server/api/routers/beans";
+import {type BeanOrder, OrderState} from "~/server/api/routers/beans";
 import PendingOrder from "~/app/_components/kitchen/pendingOrder";
 import AcceptedOrder from "~/app/_components/kitchen/acceptedOrder";
 import CompletedOrder from "~/app/_components/kitchen/completedOrder";
@@ -45,7 +45,11 @@ export function Orders() {
   useEffect(() => setSplitOrders(calcOrders()), [orders]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => utils.bean.invalidate(), 10000); // Poll every 10 seconds
+    const intervalId = setInterval(() => {
+      void utils.bean.invalidate().then(() => {
+        //No-op
+      });
+    }, 10000); // Poll every 10 seconds
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
   }, [orders]);

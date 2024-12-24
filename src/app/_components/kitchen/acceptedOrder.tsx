@@ -1,9 +1,8 @@
 'use client'
 
-import {BeanOrder} from "~/server/api/routers/beans";
+import {type BeanOrder} from "~/server/api/routers/beans";
 import React from "react";
 import {api} from "~/trpc/react";
-
 
 const AcceptedOrder = (props: { order: BeanOrder }) => {
 
@@ -12,13 +11,13 @@ const AcceptedOrder = (props: { order: BeanOrder }) => {
   const completeOrder = api.bean.completeOrder.useMutation({
     onSuccess: async (response) => {
       console.log(response);
-      utils.bean.invalidate();
+      await utils.bean.invalidate();
     },
   });
 
-  const reject = (orderId: string) => {
-    //TODO
-  }
+  // const reject = (orderId: string) => {
+  //   //TODO
+  // }
 
   return (
       <div className="max-w-sm rounded-lg bg-origin-padding overflow-hidden shadow-lg border-binge-off-black border-2 m-5" key={props.order.orderId}>

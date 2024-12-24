@@ -1,13 +1,13 @@
 'use client'
 
 import {Picture} from "~/app/_components/swipe/picture";
-import {BeanDetails} from "~/server/api/routers/beans";
+import {type BeanDetails} from "~/server/api/routers/beans";
 import MatchModal from "~/app/_components/swipe/match";
 import {useState} from "react";
 import {api} from "~/trpc/react";
 import SwipeButton from "~/app/_components/swipe/SwipeButton";
 
-const Offering = (props: { beanDetails: BeanDetails, onSwipe: Function }) => {
+const Offering = (props: { beanDetails: BeanDetails, onSwipe: () => void }) => {
 
   const [isMatch, setIsMatch] = useState<boolean>(false);
 

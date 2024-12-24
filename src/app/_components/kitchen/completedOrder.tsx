@@ -1,4 +1,4 @@
-import {BeanOrder} from "~/server/api/routers/beans";
+import {type BeanOrder} from "~/server/api/routers/beans";
 import React from "react";
 
 const CompletedOrder = (props: { order: BeanOrder }) => {
