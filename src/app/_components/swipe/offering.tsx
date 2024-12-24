@@ -7,7 +7,7 @@ import {useState} from "react";
 import {api} from "~/trpc/react";
 import SwipeButton from "~/app/_components/swipe/SwipeButton";
 
-const Offering = (props: { beanDetails: BeanDetails, onSwipe: () => void }) => {
+const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: () => void }) => {
 
   const [isMatch, setIsMatch] = useState<boolean>(false);
 
@@ -20,9 +20,8 @@ const Offering = (props: { beanDetails: BeanDetails, onSwipe: () => void }) => {
 
   const onMatch = () => {
     //TODO: Set the user dynamically set from a cookie when the user opens the swipe screen
-    orderBeans.mutate({beanName: props.beanDetails.name, user: "izaak"});
+    orderBeans.mutate({beanName: props.beanDetails.name, user: props.userName});
   }
-
 
   return (
       <div className="flex flex-col bg-binge-off-white min-w-full z-0 p-8">

@@ -5,21 +5,25 @@ import Offering from "~/app/_components/swipe/offering";
 import React, {useState} from "react";
 import {api} from "~/trpc/react";
 import {LuShoppingBasket} from "react-icons/lu";
-
+import NameModal from "~/app/_components/swipe/NameModal";
 
 const SwipeWindow = () => {
 
   const [swipeIndex, setSwipeIndex] = useState<number>(0)
-
+  const [name, setName] = useState<string>("");
   const {data: beanDetails = []} = api.bean.getBeanDetails.useQuery();
-
 
   return (
       <body>
       <Header/>
+
+      {
+        !name ? (<NameModal onNameEntered={(name: string) => setName(name)}/>) : ""
+      }
+
       <div className="container min-h-screen flex flex-col mx-auto">
         {beanDetails?.[swipeIndex] ? (
-            <Offering beanDetails={beanDetails[swipeIndex]} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
+            <Offering beanDetails={beanDetails[swipeIndex]} userName={name} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
         ) : (
             <p className="text-binge-off-black">You&apos;ve run out of beans you hungry bastard!</p>
             // TODO: Add ability to go back to the start
