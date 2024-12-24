@@ -3,6 +3,7 @@
 import {type BeanOrder} from "~/server/api/routers/beans";
 import React from "react";
 import {api} from "~/trpc/react";
+import {minsSinceDate} from "~/app/util/DateUtil";
 
 
 const PendingOrder = (props: { order: BeanOrder }) => {
@@ -26,7 +27,7 @@ const PendingOrder = (props: { order: BeanOrder }) => {
           <div className="font-bold text-xl mb-2">{props.order.beanName}</div>
           <p className="text-gray-700 text-base">
             For: {props.order.name}<br/>
-            Placed at: {props.order.orderPlacedDateTime.toDateString()}
+            Placed {minsSinceDate(props.order.orderPlacedDateTime)} minutes ago
           </p>
           <div className="flex flex-row justify-around pt-4">
             <button className="rounded-full bg-binge-green px-3.5 py-2.5 text-sm font-semibold text-binge-off-black" onClick={() => acceptOrder.mutate({orderId: props.order.orderId})}>

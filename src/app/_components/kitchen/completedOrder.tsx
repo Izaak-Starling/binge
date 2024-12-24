@@ -1,5 +1,6 @@
 import {type BeanOrder} from "~/server/api/routers/beans";
 import React from "react";
+import {minsSinceDate} from "~/app/util/DateUtil";
 
 const CompletedOrder = (props: { order: BeanOrder }) => {
 
@@ -9,7 +10,7 @@ const CompletedOrder = (props: { order: BeanOrder }) => {
           <div className="font-bold text-xl mb-2">{props.order.beanName}</div>
           <p className="text-gray-700 text-base">
             For: {props.order.name}<br/>
-            Placed at: {props.order.orderPlacedDateTime.toDateString()}
+            Placed {minsSinceDate(props.order.orderPlacedDateTime)} minutes ago
           </p>
         </div>
       </div>
