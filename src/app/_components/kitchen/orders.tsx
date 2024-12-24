@@ -16,7 +16,7 @@ interface SplitOrders {
 export function Orders() {
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
   const utils = api.useUtils();
-  const [orders] = api.bean.getBeanOrders.useSuspenseQuery();
+  const {data: orders = []} = api.bean.getBeanOrders.useQuery();
 
   const calcOrders = (): SplitOrders => {
     const tSplitOrders: SplitOrders = {pending: [], accepted: [], completed: []};

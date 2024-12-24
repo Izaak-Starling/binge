@@ -11,7 +11,7 @@ const SwipeWindow = () => {
 
   const [swipeIndex, setSwipeIndex] = useState<number>(0)
 
-  const [beanDetails] = api.bean.getBeanDetails.useSuspenseQuery();
+  const {data: beanDetails = []} = api.bean.getBeanDetails.useQuery();
 
 
   return (
