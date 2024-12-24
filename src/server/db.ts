@@ -4,8 +4,7 @@ import {env} from "~/env";
 
 const createPrismaClient = (): PrismaClient =>
     new PrismaClient({
-      log:
-          env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+      log: env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
     });
 
 type GlobalForPrisma = typeof globalThis & {
@@ -14,6 +13,6 @@ type GlobalForPrisma = typeof globalThis & {
 
 const globalForPrisma: GlobalForPrisma = globalThis as GlobalForPrisma;
 
-export const db = globalForPrisma.prisma ?? createPrismaClient();
+export const db: PrismaClient = globalForPrisma.prisma ?? createPrismaClient();
 
 if (env.NODE_ENV !== "production") globalForPrisma.prisma = db;
