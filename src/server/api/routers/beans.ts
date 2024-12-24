@@ -4,7 +4,8 @@ import {z} from "zod";
 export enum OrderState {
   Pending,
   Accepted,
-  Completed
+  Completed,
+  Cancelled
 }
 
 export interface BeanOrder {
@@ -105,6 +106,20 @@ export const beanRouter = t.router({
     const order = beanOrders.find(order => order.orderId === input.orderId);
     if (order) {
       order.orderState = OrderState.Completed;
+    }
+  }),
+
+  rejectOrder: t.procedure
+  .input(
+      z.object({
+        orderId: z.string()
+      })
+  ).mutation(async (opts) => {
+    const {input} = opts;
+
+    const order = beanOrders.find(order => order.orderId === input.orderId);
+    if (order) {
+      order.orderState = OrderState.Cancelled;
     }
   }),
 
