@@ -4,6 +4,8 @@ import Header from "~/app/_components/header";
 import Offering from "~/app/_components/swipe/offering";
 import React, {useState} from "react";
 import {api} from "~/trpc/react";
+import {LuShoppingBasket} from "react-icons/lu";
+
 
 const SwipeWindow = () => {
 
@@ -25,6 +27,13 @@ const SwipeWindow = () => {
         )}
 
       </div>
+      <footer className="footer footer-center w-screen fixed bottom-0">
+        <div className="flex justify-center pb-2">
+          <div className="p-4 rounded-full shadow">
+            <LuShoppingBasket size="1.5em"/>
+          </div>
+        </div>
+      </footer>
       </body>
   )
 }
