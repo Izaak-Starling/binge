@@ -37,6 +37,7 @@ export function Orders() {
           tSplitOrders.accepted.push(order);
           break;
         case OrderState.Completed:
+        case OrderState.Cancelled:
           tSplitOrders.completed.push(order);
           break;
       }

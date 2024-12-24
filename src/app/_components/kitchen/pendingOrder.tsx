@@ -17,9 +17,12 @@ const PendingOrder = (props: { order: BeanOrder }) => {
     },
   });
 
-  const reject = (orderId: string) => {
-    console.log("TODO: Rejecting: ", orderId);
-  }
+  const rejectOrder = api.bean.rejectOrder.useMutation({
+    onSuccess: async (response) => {
+      console.log(response);
+      await utils.bean.invalidate();
+    },
+  });
 
   return (
       <div className="max-w-sm rounded-lg bg-origin-padding overflow-hidden shadow-lg border-binge-off-black border-2 m-5" key={props.order.orderId}>
@@ -34,7 +37,7 @@ const PendingOrder = (props: { order: BeanOrder }) => {
               Accept
             </button>
 
-            <button className="rounded-full bg-binge-red px-3.5 py-2.5 text-sm font-semibold text-binge-off-black" onClick={() => reject(props.order.orderId)}>
+            <button className="rounded-full bg-binge-red px-3.5 py-2.5 text-sm font-semibold text-binge-off-black" onClick={() => rejectOrder.mutate({orderId: props.order.orderId})}>
               Reject
             </button>
           </div>
