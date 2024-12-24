@@ -6,7 +6,7 @@ const NameModal = (props: { onNameEntered: (name: string) => void }) => {
 
   return (
       // TODO: Do not let them close the dialog, make them enter a name
-      <Dialog open={true} as="div" className="relative z-10 focus:outline-none" onClose={() => {
+      <Dialog open={true} as="div" className="relative z-10 focus:outline-none" onClose={() => {//Noop
       }} __demoMode>
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
