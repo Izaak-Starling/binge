@@ -14,16 +14,19 @@ interface SplitOrders {
 }
 
 export function Orders() {
+  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
   const utils = api.useUtils();
   const {data: orders = []} = api.bean.getBeanOrders.useQuery();
 
+  const audio = new Audio("/audio/maccas.m4a")
+
   const calcOrders = (): SplitOrders => {
+    console.log("Calcing orders " + isFirstRender);
     const tSplitOrders: SplitOrders = {pending: [], accepted: [], completed: []};
     // const orders = fetchOrders.query()
 
     for (const order of orders) {
-      console.log("order: ", order);
       switch (order.orderState) {
         case OrderState.Pending:
           tSplitOrders.pending.push(order);
@@ -37,16 +40,24 @@ export function Orders() {
       }
     }
 
-    console.log("Split orders: ", tSplitOrders);
+    if (!isFirstRender && (orders.length) > (splitOrders.pending.length + splitOrders.accepted.length + splitOrders.completed.length)) {
+      // New order present, play beep sound
+      audio.play();
+    }
+
+    if (isFirstRender) {
+      setIsFirstRender(false);
+    }
 
     return tSplitOrders;
   }
 
+  // TODO: FInd why this is broken
   useEffect(() => setSplitOrders(calcOrders()), [orders]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      void utils.bean.invalidate().then(() => {
+      void utils.bean.invalidate().then((orders) => {
         //No-op
       });
     }, 10000); // Poll every 10 seconds
