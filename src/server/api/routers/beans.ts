@@ -127,6 +127,16 @@ export const beanRouter = t.router({
     return beanOrders;
   }),
 
+  getBeanOrdersByName: t.procedure
+  .input(z.object({
+    name: z.string(),
+  }))
+  .query(async (opts) => {
+    const {input} = opts;
+
+    return beanOrders.filter(order => order.name === input.name);
+  }),
+
   getBeanDetails: t.procedure.query(() => {
     return beanDetails;
   })
