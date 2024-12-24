@@ -2,7 +2,7 @@
 
 import Header from "~/app/_components/header";
 import Offering from "~/app/_components/swipe/offering";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {api} from "~/trpc/react";
 import {LuShoppingBasket} from "react-icons/lu";
 import NameModal from "~/app/_components/swipe/NameModal";
@@ -13,12 +13,20 @@ const SwipeWindow = () => {
   const [name, setName] = useState<string>("");
   const {data: beanDetails = []} = api.bean.getBeanDetails.useQuery();
 
+  const storeNameInStorage = (name: string) => {
+    window.localStorage.setItem("name", name);
+  }
+
+  useEffect(() => {
+    setName(window.localStorage.getItem("name") || "");
+  })
+
   return (
       <body>
       <Header/>
 
       {
-        !name ? (<NameModal onNameEntered={(name: string) => setName(name)}/>) : ""
+        !name ? (<NameModal onNameEntered={(name: string) => storeNameInStorage(name)}/>) : ""
       }
 
       <div className="container min-h-screen flex flex-col mx-auto">
@@ -33,9 +41,11 @@ const SwipeWindow = () => {
       </div>
       <footer className="footer footer-center w-screen fixed bottom-0">
         <div className="flex justify-center pb-2">
-          <div className="p-4 rounded-full shadow">
-            <LuShoppingBasket size="1.5em"/>
-          </div>
+          <a href="/orderHistory">
+            <div className="p-4 rounded-full shadow">
+              <LuShoppingBasket size="1.5em"/>
+            </div>
+          </a>
         </div>
       </footer>
       </body>

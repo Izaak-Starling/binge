@@ -13,6 +13,7 @@ interface SplitOrders {
   completed: BeanOrder[]
 }
 
+// TODO: Sort orders by date received
 export function Orders() {
   const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
