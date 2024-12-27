@@ -5,6 +5,7 @@ import OrderCard from "~/app/_components/orderHistory/orderCard";
 import React, {useEffect, useState} from "react";
 import {LuBean} from "react-icons/lu";
 import Header from "~/app/_components/header";
+import {sortOrdersByDateAsc} from "~/app/util/OrdersUtil";
 
 const OrderHistoryPage = () => {
   const [userName, setUserName] = useState("");
@@ -30,7 +31,7 @@ const OrderHistoryPage = () => {
           <p className="text-binge-off-black text-xl ">Your Matches!</p>
           {orders.length === 0 ? (<p>You dont have any matches :(</p>) : ""}
           <div>
-            {(orders.map(order => (
+            {(sortOrdersByDateAsc(orders).map(order => (
                 <OrderCard key={order.orderId} order={order}/>
             )))}
           </div>
