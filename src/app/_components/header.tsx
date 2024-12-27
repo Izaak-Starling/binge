@@ -9,10 +9,10 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
-    {name: 'Mission', href: '#'},
-    {name: 'Careers', href: '#'},
-    {name: 'Labs', href: '#'},
-    {name: 'Impact', href: '#'},
+    {name: 'Mission', href: 'https://en.wikipedia.org/wiki/Gunpowder_Plot'},
+    {name: 'Careers', href: 'https://www.spellingmistakescostlives.com/single-post/the-great-ai-hoax'},
+    {name: 'Labs', href: 'https://lcc.org.uk/'},
+    {name: 'Impact', href: 'https://www.theguardian.com/environment/2022/jun/03/car-tyres-produce-more-particle-pollution-than-exhausts-tests-show'},
   ]
 
   return (
