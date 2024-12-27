@@ -6,6 +6,7 @@ import {type BeanOrder, OrderState} from "~/server/api/routers/beans";
 import PendingOrder from "~/app/_components/kitchen/pendingOrder";
 import AcceptedOrder from "~/app/_components/kitchen/acceptedOrder";
 import CompletedOrder from "~/app/_components/kitchen/completedOrder";
+import {sortOrdersByDateAsc} from "~/app/util/OrdersUtil";
 
 interface SplitOrders {
   pending: BeanOrder[],
@@ -13,7 +14,6 @@ interface SplitOrders {
   completed: BeanOrder[]
 }
 
-// TODO: Sort orders by date received
 export function Orders() {
   const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
@@ -25,9 +25,7 @@ export function Orders() {
   );
 
   const calcOrders = (): SplitOrders => {
-    console.log("Calcing orders " + isFirstRender);
     const tSplitOrders: SplitOrders = {pending: [], accepted: [], completed: []};
-    // const orders = fetchOrders.query()
 
     for (const order of orders) {
       switch (order.orderState) {
@@ -76,7 +74,7 @@ export function Orders() {
           <p className="justify-center">Pending</p>
           <div className="flex flex-col">
             {
-              splitOrders.pending ? (splitOrders.pending.map(pendingOrder => (
+              splitOrders.pending ? (sortOrdersByDateAsc(splitOrders.pending).map(pendingOrder => (
                   <PendingOrder key={pendingOrder.orderId} order={pendingOrder}/>
               ))) : (<></>)
             }
@@ -88,7 +86,7 @@ export function Orders() {
           <p className="justify-center">Accepted</p>
           <div className="flex flex-col">
             {
-              splitOrders.pending ? (splitOrders.accepted.map(acceptedOrder => (
+              splitOrders.pending ? (sortOrdersByDateAsc(splitOrders.accepted).map(acceptedOrder => (
                   <AcceptedOrder key={acceptedOrder.orderId} order={acceptedOrder}/>
               ))) : (<></>)
             }
@@ -100,7 +98,7 @@ export function Orders() {
           <p className="justify-center">Completed</p>
           <div className="flex flex-col">
             {
-              splitOrders.completed ? (splitOrders.completed.map(completedOrder => (
+              splitOrders.completed ? (sortOrdersByDateAsc(splitOrders.completed).map(completedOrder => (
                   <CompletedOrder key={completedOrder.orderId} order={completedOrder}/>
               ))) : (<></>)
             }
