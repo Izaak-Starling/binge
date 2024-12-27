@@ -38,7 +38,7 @@ const SwipeWindow = () => {
         !name ? (<NameModal isOpen={isNameModalOpen} onNameEntered={(name: string) => storeNameInStorage(name)}/>) : ""
       }
 
-      <div className="container min-h-screen flex flex-col mx-auto">
+      <div className="container min-h-screen flex flex-col mx-auto z-10">
         {beanDetails?.[swipeIndex] ? (
             <Offering beanDetails={beanDetails[swipeIndex]} userName={name} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
         ) : (
@@ -48,7 +48,7 @@ const SwipeWindow = () => {
         )}
 
       </div>
-      <footer className="footer footer-center w-screen fixed bottom-0">
+      <footer className="footer footer-center w-screen fixed bottom-0 -z-1">
         <div className="flex justify-center pb-2">
           <a href="/orderHistory">
             <div className="p-4 rounded-full bg-binge-off-white shadow">

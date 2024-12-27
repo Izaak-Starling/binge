@@ -24,7 +24,7 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
   }
 
   return (
-      <div className="flex flex-col bg-binge-off-white min-w-full z-0 p-8">
+      <div className="flex flex-col bg-binge-off-white min-w-full p-8">
 
         {/*Bean name section*/}
         <div className="w-full">
