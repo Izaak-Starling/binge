@@ -6,6 +6,7 @@ import MatchModal from "~/app/_components/swipe/MatchModal";
 import {useState} from "react";
 import {api} from "~/trpc/react";
 import SwipeButton from "~/app/_components/swipe/SwipeButton";
+import IngredientsCard from "~/app/_components/swipe/IngredientsCard";
 
 const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: () => void }) => {
 
@@ -33,6 +34,8 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
         </div>
 
         <PictureCard beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
+
+        <IngredientsCard beanIngredients={props.beanDetails.ingredients} onMatch={() => onMatch()}/>
 
         <SwipeButton onSwipe={() => props.onSwipe()}/>
 
