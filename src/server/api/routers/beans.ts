@@ -22,11 +22,19 @@ export interface BeanIngredients {
   line3: string,
 }
 
+export interface BeanSpecifics {
+  temperature: string,
+  chefName: string,
+  pairingSuggestion: string,
+  additionalInfo: string,
+}
+
 export interface BeanDetails {
   name: string,
   description: string,
   image1Url: string,
   ingredients: BeanIngredients,
+  specifics: BeanSpecifics,
 }
 
 const beanOrders: BeanOrder[] = [
@@ -51,19 +59,22 @@ const beanDetails: BeanDetails[] = [
     name: "Borlotti Beans",
     description: "In a tomato sauce",
     image1Url: "/img/borlotti_beans_1.jpg",
-    ingredients: {line1: "Glue", line2: "Glue", line3: "Glue"}
+    ingredients: {line1: "Glue", line2: "Glue", line3: "Glue"},
+    specifics: {temperature: "Hot", chefName: "Mr Tom Hibbs", pairingSuggestion: "Homemade Cider", additionalInfo: "Do not consume if you have a pacemaker"}
   },
   {
     name: "Homemade Cider",
     description: "Tangy",
     image1Url: "/img/homemade_cider_1.jpg",
-    ingredients: {line1: "Apples", line2: "Honey", line3: "Germs"}
+    ingredients: {line1: "Apples", line2: "Honey", line3: "Germs"},
+    specifics: {temperature: "Cold", chefName: "Jamie Oliver", pairingSuggestion: "Definitely not Borlotti Beans", additionalInfo: "Tailor Swift was an industry plant"}
   },
   {
     name: "Mead",
     description: "Not fit for human consumption",
     image1Url: "/img/mead_1.jpg",
-    ingredients: {line1: "Honey", line2: "Petrol", line3: "Lighter Fluid"}
+    ingredients: {line1: "Honey", line2: "Petrol", line3: "Lighter Fluid"},
+    specifics: {temperature: "Unknown", chefName: "The monk we keep in the walls", pairingSuggestion: "Fomepizole 5mg", additionalInfo: "Do not consume"}
   }
 ]
 
