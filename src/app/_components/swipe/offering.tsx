@@ -36,9 +36,9 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
 
         <PictureCard beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
 
-        <IngredientsCard beanIngredients={props.beanDetails.ingredients}/>
-
         <SpecificsCard specifics={props.beanDetails.specifics}/>
+
+        <IngredientsCard beanIngredients={props.beanDetails.ingredients}/>
 
         <SwipeButton onSwipe={() => props.onSwipe()}/>
 
