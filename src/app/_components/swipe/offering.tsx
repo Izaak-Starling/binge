@@ -14,15 +14,19 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
   const [isMatch, setIsMatch] = useState<boolean>(false);
 
   const orderBeans = api.bean.orderBeans.useMutation({
-    onSuccess: async (response) => {
-      console.log(response);
-      setIsMatch(true);
+    onSuccess: async () => {
+      setIsMatch(false);
+      props.onSwipe();
     },
   });
 
-  const onMatch = () => {
-    //TODO: Set the user dynamically set from a cookie when the user opens the swipe screen
+  const onConfirmMatch = () => {
     orderBeans.mutate({beanName: props.beanDetails.name, user: props.userName});
+  }
+
+  const onRejectMatch = () => {
+    setIsMatch(false);
+    props.onSwipe();
   }
 
   return (
@@ -34,7 +38,7 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
           <p className="text-binge-off-black text-lg">{props.beanDetails.description}</p>
         </div>
 
-        <PictureCard beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
+        <PictureCard beanDetails={props.beanDetails} onMatch={() => setIsMatch(true)}/>
 
         <SpecificsCard specifics={props.beanDetails.specifics}/>
 
@@ -43,10 +47,7 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
         <SwipeButton onSwipe={() => props.onSwipe()}/>
 
         {/*//TODO: Make user confirm they want to order after a match. To avoid unexpected orders.*/}
-        <MatchModal isOpen={isMatch} beanName={props.beanDetails.name} doOnClose={() => {
-          setIsMatch(false);
-          props.onSwipe();
-        }}/>
+        <MatchModal isOpen={isMatch} beanName={props.beanDetails.name} onConfirmMatch={() => onConfirmMatch()} onRejectMatch={() => onRejectMatch()}/>
       </div>
   )
 }

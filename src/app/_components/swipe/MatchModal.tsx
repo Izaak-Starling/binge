@@ -1,11 +1,10 @@
 import {Button, Dialog, DialogPanel, DialogTitle} from '@headlessui/react'
 
-const MatchModal = (props: { isOpen: boolean, beanName: string, doOnClose: () => void }) => {
+const MatchModal = (props: { isOpen: boolean, beanName: string, onConfirmMatch: () => void, onRejectMatch: () => void }) => {
 
   return (
       <>
-        {/*TODO: Restyle me to match the binge design language*/}
-        <Dialog open={props.isOpen} as="div" className="relative z-10 focus:outline-none" onClose={props.doOnClose} __demoMode>
+        <Dialog open={props.isOpen} as="div" className="relative z-10 focus:outline-none" onClose={props.onRejectMatch} __demoMode>
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4">
               <DialogPanel
@@ -16,13 +15,18 @@ const MatchModal = (props: { isOpen: boolean, beanName: string, doOnClose: () =>
                   It&apos;s a Match!
                 </DialogTitle>
                 <p className="mt-2 text-sm/6 text-binge-off-black/50">
-                  You have ordered {props.beanName}! Your order will be prepared by our dedicated staff!
+                  You are about to match with {props.beanName}! Your order will be prepared by our dedicated staff!
                 </p>
                 <div className="mt-4">
                   <Button
                       className="inline-flex items-center gap-2 rounded-md bg-binge-off-black py-1.5 px-3 text-sm/6 font-semibold text-binge-off-white shadow-inner shadow-binge-off-black/10 focus:outline-none"
-                      onClick={props.doOnClose}>
-                    Got it thanks!
+                      onClick={props.onConfirmMatch}>
+                    Confirm!
+                  </Button>
+                  <Button
+                      className="inline-flex items-center gap-2 rounded-md bg-red-700 py-1.5 px-3 ml-3 text-sm/6 font-semibold text-binge-off-white shadow-inner shadow-binge-off-black/10 focus:outline-none"
+                      onClick={props.onRejectMatch}>
+                    Cancel!
                   </Button>
                 </div>
               </DialogPanel>
