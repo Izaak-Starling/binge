@@ -4,6 +4,7 @@ import {api} from "~/trpc/react";
 import OrderCard from "~/app/_components/orderHistory/orderCard";
 import React, {useEffect, useState} from "react";
 import {LuBean} from "react-icons/lu";
+import Header from "~/app/_components/header";
 
 // TODO: Add a back button
 const OrderHistoryPage = () => {
@@ -24,12 +25,18 @@ const OrderHistoryPage = () => {
 
   return (
       <>
-        {orders.length === 0 ? (<p>You dont have any matches :(</p>) : ""}
-        <div>
-          {(orders.map(order => (
-              <OrderCard key={order.orderId} order={order}/>
-          )))}
+        <Header/>
+
+        <div className="z-0 p-8">
+          <p className="text-binge-off-black text-xl ">Your Matches!</p>
+          {orders.length === 0 ? (<p>You dont have any matches :(</p>) : ""}
+          <div>
+            {(orders.map(order => (
+                <OrderCard key={order.orderId} order={order}/>
+            )))}
+          </div>
         </div>
+
         <footer className="footer footer-center w-screen fixed bottom-0">
           <div className="flex justify-center pb-2">
             <a href="/swipe">
