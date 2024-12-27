@@ -14,11 +14,13 @@ const SwipeWindow = () => {
   const {data: beanDetails = []} = api.bean.getBeanDetails.useQuery();
 
   const storeNameInStorage = (name: string) => {
-    window.localStorage.setItem("name", name);
+    if (typeof window === 'object') {
+      window.localStorage.setItem("name", name);
+    }
   }
 
   useEffect(() => {
-    setName(window.localStorage.getItem("name") || "");
+    setName(window.localStorage.getItem("name") ?? "");
   })
 
   return (

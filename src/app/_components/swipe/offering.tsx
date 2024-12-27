@@ -2,7 +2,7 @@
 
 import {Picture} from "~/app/_components/swipe/picture";
 import {type BeanDetails} from "~/server/api/routers/beans";
-import MatchModal from "~/app/_components/swipe/match";
+import MatchModal from "~/app/_components/swipe/MatchModal";
 import {useState} from "react";
 import {api} from "~/trpc/react";
 import SwipeButton from "~/app/_components/swipe/SwipeButton";
