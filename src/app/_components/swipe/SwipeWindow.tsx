@@ -4,7 +4,7 @@ import Header from "~/app/_components/header";
 import Offering from "~/app/_components/swipe/offering";
 import React, {useEffect, useState} from "react";
 import {api} from "~/trpc/react";
-import {LuShoppingBasket} from "react-icons/lu";
+import {LuRotateCcw, LuShoppingBasket} from "react-icons/lu";
 import NameModal from "~/app/_components/swipe/NameModal";
 
 const SwipeWindow = () => {
@@ -42,9 +42,16 @@ const SwipeWindow = () => {
         {beanDetails?.[swipeIndex] ? (
             <Offering beanDetails={beanDetails[swipeIndex]} userName={name} onSwipe={() => setSwipeIndex(swipeIndex + 1)}/>
         ) : (
-            <p className="text-binge-off-black">You&apos;ve run out of beans you hungry bastard!</p>
-            // TODO: Add ability to go back to the start
-            // TODO: Tell izaak how stinky he is
+            <div className="flex flex-col justify-center bg-binge-off-white min-w-full p-8">
+              <p className="text-binge-off-black text-xl mb-6 text-center">You&apos;ve run out of beans you hungry bastard!</p>
+              <div className="flex justify-center">
+                <a href="/swipe">
+                  <div className="p-4 rounded-full bg-binge-off-white shadow">
+                    <LuRotateCcw size="1.5em"/>
+                  </div>
+                </a>
+              </div>
+            </div>
         )}
 
       </div>
