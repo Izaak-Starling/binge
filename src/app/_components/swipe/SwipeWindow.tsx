@@ -28,7 +28,7 @@ const SwipeWindow = () => {
     if (!name) {
       setIsNameModalOpen(true);
     }
-  })
+  }, [name, isNameModalOpen])
 
   return (
       <body>

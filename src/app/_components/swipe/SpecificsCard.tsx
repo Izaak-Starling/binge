@@ -1,4 +1,4 @@
-import {BeanSpecifics} from "~/server/api/routers/beans";
+import {type BeanSpecifics} from "~/server/api/routers/beans";
 import {LuChefHat, LuLightbulb, LuThermometer, LuWine} from "react-icons/lu";
 
 const SpecificsCard = (props: { specifics: BeanSpecifics }) => {

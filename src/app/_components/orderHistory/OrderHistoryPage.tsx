@@ -14,7 +14,7 @@ const OrderHistoryPage = () => {
     if (typeof window === 'object') {
       setUserName(window.localStorage.getItem("name") ?? "");
     }
-  })
+  }, [userName])
 
   const {data: orders = []} = api.bean.getBeanOrdersByName.useQuery({name: userName});
   if (!userName) {

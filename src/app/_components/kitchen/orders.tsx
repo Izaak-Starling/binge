@@ -15,7 +15,7 @@ interface SplitOrders {
 }
 
 export function Orders() {
-  const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
+  const isFirstRender = useRef<boolean>(true);
   const [splitOrders, setSplitOrders] = useState<SplitOrders>({pending: [], accepted: [], completed: []});
   const utils = api.useUtils();
   const {data: orders = []} = api.bean.getBeanOrders.useQuery();
@@ -42,30 +42,30 @@ export function Orders() {
       }
     }
 
-    if (!isFirstRender && (orders.length) > (splitOrders.pending.length + splitOrders.accepted.length + splitOrders.completed.length)) {
+    if (!isFirstRender.current && (orders.length) > (splitOrders.pending.length + splitOrders.accepted.length + splitOrders.completed.length)) {
       // New order present, play beep sound
       void musicPlayers.current?.play();
-    }
-
-    if (isFirstRender) {
-      setIsFirstRender(false);
     }
 
     return tSplitOrders;
   }
 
   // TODO: FInd why this is broken
-  useEffect(() => setSplitOrders(calcOrders()), [orders]);
+  useEffect(() => {
+    setSplitOrders(calcOrders());
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+    }
+  }, [orders]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      void utils.bean.invalidate().then((orders) => {
-        //No-op
+      void utils.bean.invalidate().then(() => {//No-op
       });
     }, 10000); // Poll every 10 seconds
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
-  }, [orders]);
+  }, [orders, utils.bean]);
 
   return (
       <div className="flex flex-row justify-around w-full h-screen overflow-y-hidden">
