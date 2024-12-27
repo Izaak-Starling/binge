@@ -3,7 +3,7 @@
 import {LuBean} from "react-icons/lu";
 import {type BeanDetails} from "~/server/api/routers/beans";
 
-export function Picture(props: { beanDetails: BeanDetails, onMatch: () => void }) {
+export function PictureCard(props: { beanDetails: BeanDetails, onMatch: () => void }) {
   return (
       <div style={{backgroundImage: `url('${props.beanDetails.image1Url}')`}}
            className="bg-[image:var(--background-image-url)] relative box-border bg-center bg-no-repeat bg-cover w-full aspect-square rounded-lg">

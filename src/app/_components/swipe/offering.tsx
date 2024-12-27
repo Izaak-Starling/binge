@@ -1,6 +1,6 @@
 'use client'
 
-import {Picture} from "~/app/_components/swipe/picture";
+import {PictureCard} from "~/app/_components/swipe/PictureCard";
 import {type BeanDetails} from "~/server/api/routers/beans";
 import MatchModal from "~/app/_components/swipe/MatchModal";
 import {useState} from "react";
@@ -32,7 +32,7 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
           <p className="text-binge-off-black text-lg">{props.beanDetails.description}</p>
         </div>
 
-        <Picture beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
+        <PictureCard beanDetails={props.beanDetails} onMatch={() => onMatch()}/>
 
         <SwipeButton onSwipe={() => props.onSwipe()}/>
 
