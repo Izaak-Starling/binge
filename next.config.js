@@ -5,6 +5,12 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  devIndicators: {
+    appIsrStatus: false,
+    buildActivity: false,
+  },
+};
+
 
 export default config;
