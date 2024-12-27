@@ -44,6 +44,8 @@ const Offering = (props: { beanDetails: BeanDetails, userName: string, onSwipe: 
 
         <IngredientsCard beanIngredients={props.beanDetails.ingredients}/>
 
+        <div className="pb-12"></div>
+
         <SwipeButton onSwipe={() => props.onSwipe()}/>
 
         {/*//TODO: Make user confirm they want to order after a match. To avoid unexpected orders.*/}

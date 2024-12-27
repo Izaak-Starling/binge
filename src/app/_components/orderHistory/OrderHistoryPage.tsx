@@ -37,6 +37,7 @@ const OrderHistoryPage = () => {
           </div>
         </div>
 
+        {/*// TODO: Fix issue where user can swipe before entering name*/}
         <footer className="footer footer-center w-screen fixed bottom-0">
           <div className="flex justify-center pb-2">
             <a href="/swipe">
