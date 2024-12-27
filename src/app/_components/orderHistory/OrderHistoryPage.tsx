@@ -6,7 +6,6 @@ import React, {useEffect, useState} from "react";
 import {LuBean} from "react-icons/lu";
 import Header from "~/app/_components/header";
 
-// TODO: Add a back button
 const OrderHistoryPage = () => {
   const [userName, setUserName] = useState("");
 
@@ -40,7 +39,7 @@ const OrderHistoryPage = () => {
         <footer className="footer footer-center w-screen fixed bottom-0">
           <div className="flex justify-center pb-2">
             <a href="/swipe">
-              <div className="p-4 rounded-full shadow">
+              <div className="p-4 bg-binge-off-white rounded-full shadow">
                 <LuBean size="1.5em"/>
               </div>
             </a>

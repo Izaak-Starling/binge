@@ -51,7 +51,7 @@ const SwipeWindow = () => {
       <footer className="footer footer-center w-screen fixed bottom-0">
         <div className="flex justify-center pb-2">
           <a href="/orderHistory">
-            <div className="p-4 rounded-full shadow">
+            <div className="p-4 rounded-full bg-binge-off-white shadow">
               <LuShoppingBasket size="1.5em"/>
             </div>
           </a>
