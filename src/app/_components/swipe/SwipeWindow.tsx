@@ -12,15 +12,22 @@ const SwipeWindow = () => {
   const [swipeIndex, setSwipeIndex] = useState<number>(0)
   const [name, setName] = useState<string>("");
   const {data: beanDetails = []} = api.bean.getBeanDetails.useQuery();
+  const [isNameModalOpen, setIsNameModalOpen] = useState<boolean>(false);
 
+  // TODO: Validate name was valid
   const storeNameInStorage = (name: string) => {
     if (typeof window === 'object') {
       window.localStorage.setItem("name", name);
+      setIsNameModalOpen(false);
     }
   }
 
   useEffect(() => {
-    setName(window.localStorage.getItem("name") ?? "");
+    const name = window.localStorage.getItem("name")
+    setName(name ?? "");
+    if (!name) {
+      setIsNameModalOpen(true);
+    }
   })
 
   return (
@@ -28,7 +35,7 @@ const SwipeWindow = () => {
       <Header/>
 
       {
-        !name ? (<NameModal onNameEntered={(name: string) => storeNameInStorage(name)}/>) : ""
+        !name ? (<NameModal isOpen={isNameModalOpen} onNameEntered={(name: string) => storeNameInStorage(name)}/>) : ""
       }
 
       <div className="container min-h-screen flex flex-col mx-auto">

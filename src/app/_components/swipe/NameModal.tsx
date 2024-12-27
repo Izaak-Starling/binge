@@ -1,12 +1,12 @@
 import {Button, Dialog, DialogPanel, DialogTitle, Input} from "@headlessui/react";
 import React, {useRef} from "react";
 
-const NameModal = (props: { onNameEntered: (name: string) => void }) => {
+const NameModal = (props: { onNameEntered: (name: string) => void, isOpen: boolean }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
       // TODO: Do not let them close the dialog, make them enter a name
-      <Dialog open={true} as="div" className="relative z-10 focus:outline-none" onClose={() => {//Noop
+      <Dialog open={props.isOpen} as="div" className="relative z-10 focus:outline-none" onClose={() => {//Noop
       }} __demoMode>
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
