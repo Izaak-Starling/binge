@@ -3,10 +3,15 @@
 import {api} from "~/trpc/react";
 import OrderCard from "~/app/_components/orderHistory/orderCard";
 
+// TODO: Add a back button
 const OrderHistoryPage = () => {
-  const userName: string = window.localStorage.getItem("name") || "";
+  let userName = "";
 
-  let {data: orders = []} = api.bean.getBeanOrdersByName.useQuery({name: userName});
+  if (typeof window === 'object') {
+    userName = window.localStorage.getItem("name") ?? "";
+  }
+
+  const {data: orders = []} = api.bean.getBeanOrdersByName.useQuery({name: userName});
   if (userName) {
 
     return (
