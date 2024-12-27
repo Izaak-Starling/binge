@@ -74,7 +74,7 @@ const beanDetails: BeanDetails[] = [
     description: "Not fit for human consumption",
     image1Url: "/img/mead_1.jpg",
     ingredients: {line1: "Honey", line2: "Petrol", line3: "Lighter Fluid"},
-    specifics: {temperature: "Unknown", chefName: "The monk we keep in the walls", pairingSuggestion: "Fomepizole 5mg", additionalInfo: "Do not consume"}
+    specifics: {temperature: "78c", chefName: "The monk we keep in the walls", pairingSuggestion: "Fomepizole 5mg", additionalInfo: "Do not consume"}
   }
 ]
 
