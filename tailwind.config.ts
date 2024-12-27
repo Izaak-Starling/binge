@@ -16,8 +16,7 @@ export default {
         'binge-red': '#e4230d',
       },
       backgroundImage: {
-        //TODO: Use a darker image to make the text pop more
-        'binge-beans-main': "url('/img/beans.jpg')",
+        'binge-beans-main': "url('/img/couple_with_beans.png')",
       },
       strokeWidth: {
         '20': '7px',
