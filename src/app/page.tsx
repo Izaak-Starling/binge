@@ -3,6 +3,7 @@ import {OurApproachComponent} from "~/app/_components/landing/ourApproachCompone
 import Header from "~/app/_components/header";
 import BingeLabsComponent from "~/app/_components/landing/BingeLabsComponent";
 import UserTestimonyComponent from "~/app/_components/landing/UserTestimonyComponent";
+import CareersComponent from "~/app/_components/landing/CareersComponent";
 
 export default async function Home() {
   return (
@@ -23,6 +24,8 @@ export default async function Home() {
           <BingeLabsComponent/>
 
           <UserTestimonyComponent/>
+
+          <CareersComponent/>
         </div>
         </body>
       </HydrateClient>
