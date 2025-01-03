@@ -15,7 +15,7 @@ export default async function Home() {
           <div className="flex bg-binge-beans-main bg-no-repeat bg-cover bg-center h-screen min-w-full z-0">
 
             <div className="flex w-full justify-center" style={{transform: 'translateY(75vh)'}}>
-              <p className="text-binge-off-white text-3xl/[1.1em] inline-block">The bean app<br/>designed to be deleted&trade;</p>
+              <p className="text-binge-off-white font-semibold font-serif text-3xl/[1.1em] inline-block">The bean app<br/>designed to be deleted&trade;</p>
             </div>
           </div>
 

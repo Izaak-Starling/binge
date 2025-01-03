@@ -11,7 +11,7 @@ export function OurApproachComponent() {
               Our Approach
             </p>
 
-            <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black relative pt-9">
+            <p className="text-balance text-5xl tracking-tight text-binge-off-black font-serif relative pt-9">
               Eat your&nbsp;
               <span className="relative inline whitespace-normal p[0.75%]">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"

@@ -13,7 +13,7 @@ const BingeLabsComponent = () => {
               Binge Labs
             </p>
 
-            <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black relative pt-9">
+            <p className="text-balance text-5xl tracking-tight text-binge-off-black font-serif relative pt-9">
               We&apos;re bean scientists
             </p>
 

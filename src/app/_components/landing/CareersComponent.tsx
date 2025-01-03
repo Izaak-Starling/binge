@@ -15,7 +15,7 @@ const CareersComponent = () => {
               Work at Binge
             </p>
 
-            <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black relative pt-9">
+            <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black font-serif relative pt-9">
               Let&apos;s work together
             </p>
 
