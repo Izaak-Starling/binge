@@ -12,6 +12,7 @@ export default {
         'binge-off-white': '#fffefd',
         'binge-off-black': '#1a1a1a',
         'binge-purple': '#67295f',
+        'binge-light-purple': '#d9c9d7',
         'binge-green': '#03cb46',
         'binge-red': '#e4230d',
       },
