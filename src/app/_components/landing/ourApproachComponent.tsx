@@ -1,6 +1,6 @@
 import OffBlackButton from "~/app/_components/offBlackButton";
 
-export function Hero() {
+export function OurApproachComponent() {
 
   return (
       <div className="bg-binge-off-white h-screen/4">
