@@ -1,17 +1,17 @@
 import OffBlackButton from "~/app/_components/offBlackButton";
 
-export function Hero() {
+export function OurApproachComponent() {
 
   return (
-      <div className="bg-binge-off-white h-screen">
+      <div className="bg-binge-off-white h-screen/4">
         <div className="relative isolate px-6 pt-14 lg:px-8">
-          <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-56">
 
-            <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple sm:text-7xl">
+            <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple">
               Our Approach
             </p>
 
-            <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black relative pt-9">
+            <p className="text-balance text-5xl tracking-tight text-binge-off-black font-serif relative pt-9">
               Eat your&nbsp;
               <span className="relative inline whitespace-normal p[0.75%]">
                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
