@@ -12,7 +12,7 @@ const UserTestimonyComponent = () => {
             <div className="h-full" data-carousel="slide">
 
               <div className="mt-48 mb-4">
-                <p className="text-3xl text-binge-off-white font-serif">"Thank you Binge, we&apos;re getting married in a few months!"</p>
+                <p className="text-3xl text-binge-off-white font-serif">&quot;Thank you Binge, we&apos;re getting married in a few months!&quot;</p>
                 <p className="text-1xl text-binge-off-white pt-6">Aurellio & Insert any person at party</p>
               </div>
 
