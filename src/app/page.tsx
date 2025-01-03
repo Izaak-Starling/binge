@@ -17,6 +17,28 @@ export default async function Home() {
           </div>
 
           <Hero/>
+
+          <div className="bg-binge-off-white h-screen">
+            <div className="relative isolate px-6 pt-14 lg:px-8">
+              <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+
+                <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple sm:text-7xl">
+                  Binge Labs
+                </p>
+
+                <p className="text-balance text-5xl font-semibold tracking-tight text-binge-off-black relative pt-9">
+                  We&apos;re bean scientists
+                </p>
+
+                <p className="mt-8 text-pretty text-lg font-1xl text-binge-off-black">
+                  Our Binge Labs child laborers, underpaid farmers and line cooks study beans and bean flavours out of fear of violent retaliation.
+                  They&apos;ve been working on the Binge app for 3 years now, and they&apos;re still not sure what they&apos;re doing.
+                </p>
+
+              </div>
+            </div>
+          </div>
+
         </div>
         </body>
       </HydrateClient>
