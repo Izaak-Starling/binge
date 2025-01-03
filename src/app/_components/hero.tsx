@@ -7,7 +7,7 @@ export function Hero() {
         <div className="relative isolate px-6 pt-14 lg:px-8">
           <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-56">
 
-            <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple sm:text-7xl">
+            <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple">
               Our Approach
             </p>
 
