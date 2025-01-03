@@ -3,9 +3,9 @@ import OffBlackButton from "~/app/_components/offBlackButton";
 export function Hero() {
 
   return (
-      <div className="bg-binge-off-white h-screen">
+      <div className="bg-binge-off-white h-screen/4">
         <div className="relative isolate px-6 pt-14 lg:px-8">
-          <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-56">
 
             <p className="text-balance text-1xl font-semibold tracking-tight text-binge-purple sm:text-7xl">
               Our Approach
