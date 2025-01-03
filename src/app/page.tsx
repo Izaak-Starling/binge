@@ -2,6 +2,7 @@ import {HydrateClient} from "~/trpc/server";
 import {OurApproachComponent} from "~/app/_components/landing/ourApproachComponent";
 import Header from "~/app/_components/header";
 import BingeLabsComponent from "~/app/_components/landing/BingeLabsComponent";
+import UserTestimonyComponent from "~/app/_components/landing/UserTestimonyComponent";
 
 export default async function Home() {
   return (
@@ -20,6 +21,8 @@ export default async function Home() {
           <OurApproachComponent/>
 
           <BingeLabsComponent/>
+
+          <UserTestimonyComponent/>
         </div>
         </body>
       </HydrateClient>
