@@ -58,7 +58,7 @@ const beanDetails: BeanDetails[] = [
   {
     name: "Homemade Cider (2025)",
     description: "Sweet with Lemon Tasting Notes. Approx 4.5% ABV",
-    image1Url: "/img/lemoncider.avif",
+    image1Url: "/img/lemoncider.png",
     ingredients: {line1: "Apples", line2: "Lemon", line3: "Germs"},
     specifics: {temperature: "Cold", chefName: "Nelly the Natural Yeast", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "1 in 5 Apples is actually a Pear"}
   },
