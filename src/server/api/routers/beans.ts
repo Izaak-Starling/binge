@@ -49,12 +49,19 @@ const beanDetails: BeanDetails[] = [
     specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But French", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "Do not consume if you have a pacemaker"}
   },
   {
-    name: "배추된장국 (Baechu Doenjang Guk)",
+    name: "배추된장국 (Ve)",
     description: "Cabbage & Soybean Paste Soup with Sticky Rice",
     image1Url: "/img/baechu-doenjang-guk.jpg",
     ingredients: {line1: "된장", line2: "Cabbage", line3: "고추장"},
-    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But Korean", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "I brought this back on the plane from Korea 3 months ago"}
+    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But Korean", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "We brought this back on the plane from Korea 3 months ago"}
   },
+  {
+    name: "Aubergine Curry (Ve) and Chicken Curry",
+    description: "With Rice",
+    image1Url: "/img/auberginecurry.avif",
+    ingredients: {line1: "Aubergine", line2: "Chickpeas", line3: "Chicken (Optional)"},
+    specifics: {temperature: "Hot", chefName: "Jaz From Sufra", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "We took this food instead of giving it to a homeless person"}
+  }
   {
     name: "Homemade Cider (2025)",
     description: "Sweet with Lemon Tasting Notes. Approx 4.5% ABV",
