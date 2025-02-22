@@ -61,7 +61,14 @@ const beanDetails: BeanDetails[] = [
     image1Url: "/img/auberginecurry.avif",
     ingredients: {line1: "Aubergine", line2: "Chickpeas", line3: "Chicken (Optional)"},
     specifics: {temperature: "Hot", chefName: "Jaz From Sufra", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "We took this food instead of giving it to a homeless person"}
-  }
+  },
+  {
+    name: "Hummus",
+    description: "Hummus",
+    image1Url: "/img/hummus.jpeg",
+    ingredients: {line1: "Chickpeas", line2: "Tahini", line3: "Lemon"},
+    specifics: {temperature: "Cold", chefName: "Mr Izaak Birchall", pairingSuggestion: "Aubergine Curry", additionalInfo: "Northerners think hummus is posh but they're wrong"}
+  },
   {
     name: "Homemade Cider (2025)",
     description: "Sweet with Lemon Tasting Notes. Approx 4.5% ABV",
