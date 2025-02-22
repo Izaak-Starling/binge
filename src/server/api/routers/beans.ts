@@ -38,40 +38,40 @@ export interface BeanDetails {
 }
 
 const beanOrders: BeanOrder[] = [
-  {
-    orderId: "abc",
-    beanName: "Borlotti Beans",
-    name: "John",
-    orderState: OrderState.Pending,
-    orderPlacedDateTime: new Date(),
-  },
-  {
-    orderId: "def",
-    beanName: "Homemade Cider",
-    name: "Jane",
-    orderState: OrderState.Accepted,
-    orderPlacedDateTime: new Date(),
-  }
 ];
 
 const beanDetails: BeanDetails[] = [
   {
-    name: "Borlotti Beans",
-    description: "In a tomato sauce",
-    image1Url: "/img/borlotti_beans_1.jpg",
+    name: "Succulent Beef Stew",
+    description: "In a rich red wine sauce, with Thyme, Potatoes and Carrots",
+    image1Url: "/img/boeuf.webp",
     ingredients: {line1: "Glue", line2: "Glue", line3: "Glue"},
-    specifics: {temperature: "Hot", chefName: "Mr Tom Hibbs", pairingSuggestion: "Homemade Cider", additionalInfo: "Do not consume if you have a pacemaker"}
+    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But French", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "Do not consume if you have a pacemaker"}
   },
   {
-    name: "Homemade Cider",
-    description: "Tangy",
+    name: "배추된장국 (Baechu Doenjang Guk)",
+    description: "Cabbage & Soybean Paste Soup with Sticky Rice",
+    image1Url: "/img/baechu-doenjang-guk.jpg",
+    ingredients: {line1: "Beans", line2: "Beans", line3: "Beans"},
+    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But Korean", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "I brought this back on a plane from Korea"}
+  },
+  {
+    name: "Homemade Cider (2025)",
+    description: "Sweet with Lemon Tasting Notes. Approx 4.5% ABV",
+    image1Url: "/img/lemoncider.avif",
+    ingredients: {line1: "Apples", line2: "Lemon", line3: "Germs"},
+    specifics: {temperature: "Cold", chefName: "Nelly the Natural Yeast", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "1 in 5 Apples is actually a Pear"}
+  },
+  {
+    name: "Homemade Cider (2024)",
+    description: "Tangy. Approx 6% ABB",
     image1Url: "/img/homemade_cider_1.jpg",
     ingredients: {line1: "Apples", line2: "Honey", line3: "Germs"},
-    specifics: {temperature: "Cold", chefName: "Jamie Oliver", pairingSuggestion: "Definitely not Borlotti Beans", additionalInfo: "Tailor Swift was an industry plant"}
+    specifics: {temperature: "Cold", chefName: "Nelson the Natural Yeast", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "1 in 5 Apples is actually a Pear"}
   },
   {
     name: "Mead",
-    description: "Not fit for human consumption",
+    description: "Not fit for human consumption. Approx 97% ABV",
     image1Url: "/img/mead_1.jpg",
     ingredients: {line1: "Honey", line2: "Petrol", line3: "Lighter Fluid"},
     specifics: {temperature: "78c", chefName: "The monk we keep in the walls", pairingSuggestion: "Fomepizole 5mg", additionalInfo: "Do not consume"}
