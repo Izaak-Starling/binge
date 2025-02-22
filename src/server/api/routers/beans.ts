@@ -45,15 +45,15 @@ const beanDetails: BeanDetails[] = [
     name: "Succulent Beef Stew",
     description: "In a rich red wine sauce, with Thyme, Potatoes and Carrots",
     image1Url: "/img/boeuf.webp",
-    ingredients: {line1: "Glue", line2: "Glue", line3: "Glue"},
+    ingredients: {line1: "Beef", line2: "Wine", line3: "Carrot"},
     specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But French", pairingSuggestion: "Homemade Cider (2024)", additionalInfo: "Do not consume if you have a pacemaker"}
   },
   {
     name: "배추된장국 (Baechu Doenjang Guk)",
     description: "Cabbage & Soybean Paste Soup with Sticky Rice",
     image1Url: "/img/baechu-doenjang-guk.jpg",
-    ingredients: {line1: "Beans", line2: "Beans", line3: "Beans"},
-    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But Korean", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "I brought this back on a plane from Korea"}
+    ingredients: {line1: "된장", line2: "Cabbage", line3: "고추장"},
+    specifics: {temperature: "Hot", chefName: "Mr Izaak Birchall But Korean", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "I brought this back on the plane from Korea 3 months ago"}
   },
   {
     name: "Homemade Cider (2025)",
@@ -67,7 +67,7 @@ const beanDetails: BeanDetails[] = [
     description: "Tangy. Approx 6% ABB",
     image1Url: "/img/homemade_cider_1.jpg",
     ingredients: {line1: "Apples", line2: "Honey", line3: "Germs"},
-    specifics: {temperature: "Cold", chefName: "Nelson the Natural Yeast", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "1 in 5 Apples is actually a Pear"}
+    specifics: {temperature: "Cold", chefName: "Nelson the Natural Yeast", pairingSuggestion: "Homemade Cider (2025)", additionalInfo: "The average spider eats 5 humans in their sleep each year"}
   },
   {
     name: "Mead",
